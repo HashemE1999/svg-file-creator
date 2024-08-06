@@ -2,7 +2,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 // Prompts user to input up to 3 characters
 // Template by Xpert Learning Assistant
-inquirer.prompt([
+inquirer
+.prompt([
     {
         type: 'input',
         name: 'logoText',

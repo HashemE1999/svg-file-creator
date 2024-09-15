@@ -1,1 +1,1 @@
-<svg height="100" width="100" xmlns="http://www.w3.org/2000/svg"><polygon points="100,10 150,190 50,190" style="fill:red;stroke:purple;stroke-width:3" /><text fill = "white">HME</text></svg>
+<svg height="200" width="300" xmlns="http://www.w3.org/2000/svg"><polygon points="150,0 300,200 0,200" style="fill:maroon" /><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="24" fill = "white">HME</text></svg>

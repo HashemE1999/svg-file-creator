@@ -43,19 +43,19 @@ inquirer
         return true;
       }
     }
+    // Creates shapeTest variable that takes prompt answers and uses them to create a new child class based on the Shape constructor function from shapes.js
   ]).then(answers => {
-    //console.log('Logo text:', answers.logoText);
-    //console.log('Selected text color:', answers.textColor);
-    //console.log('Logo shape:', answers.shape);
-    //console.log('Selected shape color:', answers.shapeColor);
     var shapeTest = new shapes(answers.logoText, answers.textColor, answers.shape, answers.shapeColor);
+    // Calls testFunction from shapes.js on shapeTest var
     shapeTest.testFunction();
+    // Creates new var svgString by calling renderSvg function on shapeTest
     var svgString = shapeTest.renderSvg();
+    // Creates file using generated content in svgString
     writeToFile('logo.svg', svgString);
   });
-  
+  // Logs message "Generated logo.svg" to terminal on generation of file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-        err ? console.log(err) : console.log("SVG file created successfully!")
+        err ? console.log(err) : console.log("Generated logo.svg")
     });
 };

@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const shapes = require('./shapes.js');
+const shapes = require("./lib/shapes.js");
 
 inquirer
 .prompt([
@@ -32,7 +32,7 @@ inquirer
       type: 'list',
       name: 'shape',
       message: 'Select the shape for your logo:',
-      choices: [Triangle, Circle, Square]
+      choices: ['Triangle', 'Circle', 'Square']
     },
     // Prompts user to input shape color as either a color keyword or a hexadecimal number
     {
@@ -44,8 +44,18 @@ inquirer
       }
     }
   ]).then(answers => {
-    console.log('Logo text:', answers.logoText);
-    console.log('Selected text color:', answers.textColor);
-    console.log('Logo shape:', answers.shape);
-    console.log('Selected shape color:', answers.shapeColor);
+    //console.log('Logo text:', answers.logoText);
+    //console.log('Selected text color:', answers.textColor);
+    //console.log('Logo shape:', answers.shape);
+    //console.log('Selected shape color:', answers.shapeColor);
+    var shapeTest = new shapes(answers.logoText, answers.textColor, answers.shape, answers.shapeColor);
+    shapeTest.testFunction();
+    var svgString = shapeTest.renderSvg();
+    writeToFile('logo.svg', svgString);
   });
+  
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.log(err) : console.log("SVG file created successfully!")
+    });
+};
